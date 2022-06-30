@@ -1,0 +1,32 @@
+from ast import If
+import pygame
+from pygame.locals import *
+from sys import exit
+
+pygame.init()
+
+larg = 640
+altura = 480
+x = 0
+y = 0
+
+tela = pygame.display.set_mode((larg, altura))
+
+pygame.display.set_caption('Quiz')
+relogio = pygame.time.Clock()
+
+
+while True:
+    relogio.tick(10)
+    tela.fill((0, 1, 50))
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            exit()
+
+    pygame.draw.rect(tela, (120, 30, 170), (x, y, 10, 11))
+    if y >= altura:
+        y = 0
+    y = y + 1
+
+    pygame.display.update()
